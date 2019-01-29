@@ -1,0 +1,199 @@
+#numpad{
+  margin-top: 2px;
+  margin-left: 360px;
+  height: 690px;
+  width: auto;
+  z-index: 100;
+}
+#buttons{
+
+}
+#but1 {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -251px;
+    margin-left: 536px;
+    position: absolute;
+    cursor: pointer;
+}
+#but2 {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -251px;
+    margin-left: 595px;
+    position: absolute;
+    cursor: pointer;
+}
+#but3 {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -251px;
+    margin-left: 653.4px;
+    position: absolute;
+    cursor: pointer;
+}
+#but4 {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -251px;
+    margin-left: 713px;
+    position: absolute;
+    cursor: pointer;
+}
+#but5 {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -193px;
+    margin-left: 536px;
+    position: absolute;
+    cursor: pointer;
+}
+#but6 {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -193px;
+    margin-left: 595px;
+    position: absolute;
+    cursor: pointer;
+}
+#but7 {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -192px;
+    margin-left: 653.4px;
+    position: absolute;
+    cursor: pointer;
+}
+#but8 {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -193px;
+    margin-left: 713px;
+    position: absolute;
+    cursor: pointer;
+}
+#but9 {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -135px;
+    margin-left: 536px;
+    position: absolute;
+    cursor: pointer;
+}
+#but0 {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -135px;
+    margin-left: 595px;
+    position: absolute;
+    cursor: pointer;
+}
+#butx {
+    background-color: rgba(0,0,0,0.0);
+    border:0.1px solid black;
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -135px;
+    margin-left: 653.4px;
+    position: absolute;
+    cursor: pointer;
+}
+#butkey {
+    background-color: rgba(0,0,0,0.0);
+    /*  */
+    height:45px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:45px;
+    margin-top: -135px;
+    margin-left: 713px;
+    position: absolute;
+    cursor: pointer;
+}
+#code{
+  font-family: 'Orbitron', sans-serif;
+  margin-top: -301px;
+  margin-left: 544px;
+  font-size: 31px;
+  letter-spacing: 19px;
+  color: #0000006e;
+  transform: rotate(0.7deg);
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: right;
+}
+#door{
+  margin-left: 270px;
+  margin-top: 0px;
+  display: none;
+  position: absolute;
+  z-index: 100;
+}
+#reload{
+  transition: transform .8s ease-in-out;
+  height: 40px;
+  width: auto;
+  margin-left: 1190px;
+  margin-top: 10px;
+  display: none;
+  position: absolute;
+  z-index: 150;
+}
+#reload:hover{
+  transform: rotate(360deg);
+}
