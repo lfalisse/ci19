@@ -67,11 +67,15 @@
     document.getElementById("code").innerHTML = "";
   })
   $("#butkey").click(function(){
+      var code = document.getElementById("code").innerHTML;
+      console.log(code);
+      if (code == "108") {
       $("#buttons").toggle();
       $("#code").toggle();
       $("#numpad").toggle();
       $("#door").toggle();
       $("#reload").toggle();
+      }
     })
   })
 
