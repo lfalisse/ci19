@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jam</title>
+<link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+</head>
+<style>
+html{
+	font-family: 'Nova Mono', monospace;
+}
+body{
+	display:grid;
+	grid-template-columns: 200px auto;
+	grid-template-rows: 100px auto;
+}
+.title{
+	grid-column-start: 1;
+	grid-column-end: 4;
+	display: flex;
+	justify-content: center;
+
+}
+.sidebar{
+	background-color: lightgray
+}
+.content{
+	padding:1em;
+}
+
+@media not all and (hover){
+	/* mobile layout */
+	.sidebar,.content{
+		grid-column-start: 1;
+		grid-column-end: 4;
+	}
+	h1{
+		font-size: 300%;
+	}
+	body{
+		grid-template-columns: 200px auto auto
+
+	}
+	.sidebar{
+		display: flex;
+		justify-content: center;
+		font-size: 180%
+	}
+	ul{
+		list-style:none;
+	}
+	
+}
+</style>
+<body>
+	<div class="title">
+		<h1>Louis Falisse</h1>
+	</div>
+	<div class="sidebar">
+		<ul>
+			<li>Photography</li>
+			<li>Video</li>
+			<li>Course Work</li>
+			<li>Fleece Coordination</li>
+		</ul>
+	</div>
+	<div class="content">
+		<h3>Gang</h3>
+		<p>Posse, Homies, Mob, "Mad Ting Ay", Posse, Homies, Mob, "Mad Ting Ay", Posse, Homies, Mob, "Mad Ting Ay", Posse, Homies, Mob, "Mad Ting Ay", Posse, Homies, Mob, "Mad Ting Ay", Posse, Homies, Mob, "Mad Ting Ay", Posse, Homies, Mob, "Mad Ting Ay", Posse, Homies, Mob, "Mad Ting Ay", Posse, Homies, Mob, "Mad Ting Ay"</p>
+	</div>
+</body>
+</html>
