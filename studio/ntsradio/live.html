@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+<title>How To</title>
+<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400i,700i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<style>
+body{
+	background-color: #E8E8E8;
+	display: grid;
+	grid-template-columns: auto;
+}
+.title1{
+	font-family: 'Open Sans Condensed:700', sans-serif;
+    font-style: italic;
+    font-size: 70px
+}
+#title2{
+	float: right;
+}
+.break{
+	text-align: right;
+	border-top: 0.5px black solid;
+}
+.photos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pho1{
+	width: 90%;
+}
+.pho2{
+	width: 90%;
+}
+.inst{
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	border-bottom: 0.5px black solid;
+}
+/*@media (hover) and (min-width:717px) {
+	.pho2,.pho3{
+		width: 65%;
+	}
+}*/
+@media (hover) and (min-width:1007px) {
+body{	
+	grid-template-columns: 500px auto;
+	grid-template-rows: 68px 14px 20px 360px 20px 360px 20px 360px;
+}
+.title1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.break{
+	grid-column-start: 1;
+	grid-column-end: 3;
+	text-align: right;
+	border-top: 0 white solid;
+}
+.photos{
+	border-bottom: 0.5px black solid;
+}
+.pho{
+	width: 90%;
+}
+.pho1{
+	width:100%;
+}
+#bar{
+	width: 100%;
+}
+.pho2{
+	width:90%;
+}
+.pho3{
+	width:;
+}
+.inst{
+	font-size: 41px;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	border
+}
+}
+</style>
+<body>
+	<div class="title1">LIVE<span id="title2">GUIDE</span></div>
+	<div></div>
+	<div></div>
+	<div id='s1' class="break">STEP 01</div>
+	<div class="photos"><img class='pho' src='photos/nts1.png'></div>
+	<div class="inst">To begin your listening experience, start by opening the application.</div>
+	<div class="break">STEP 02</div>
+	<div class="photos"><img class='pho1' id='bar' src='photos/live.png'></div>
+	<div class="inst">
+		<p>Once you have loaded the application, you will notice a bar running along th	bottom of the screen with four options. To listen to a live station, press on the live tab.</p>
+	</div>
+	<div class="break">STEP 03</div>
+	<div class="photos"><img class='pho2' src='photos/liv1.png'></div>
+	<div class="inst">When in the live tab, choose a station that interests you and press play</div>
+	<div class="break">STEP 04</div>
+	<div class="photos"><img class='pho2' src='photos/liv.png'></div>
+	<div class="inst">For more information about the radio station (DJ, Song Names, Genres	etc.) Click the station name.</div>
+</body>

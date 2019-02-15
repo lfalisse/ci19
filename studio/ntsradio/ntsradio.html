@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head>
+<title>How To</title>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300i,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+</head>
+<style> 
+body{
+ display:grid;
+ grid-template-columns: auto;
+ background-color: #E8E8E8;
+}
+.title{
+	font-family: 'Open Sans Condensed:300i', sans-serif;
+	font-weight: 300;
+	font-style: italic;
+	font-size: 103px;
+	margin-right: 1%;
+	z-index: 100;
+	border-bottom: 0.5px solid black;
+	text-align: right;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+#radio{
+	font-family: 'Open Sans Condensed:700', sans-serif;
+	font-weight: 700;
+	z-index: 100;
+}
+#photo{
+	border-bottom: 0.5px solid black;
+}
+.ntsphoto{
+	width: 60%;
+	justify-content: center;
+	margin: 20%;
+}
+.opt{
+	text-align: right;
+}
+a{
+	font-size: 50px;
+	font-family: 'Open Sans Condensed:700', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    z-index: 100;
+    text-decoration: none;
+    color: black;
+    font-size:85px;
+    margin: 2%
+}
+a:hover{
+	text-decoration: underline;
+}
+
+/* desktop layout small window */
+@media (hover) and (min-width:1007px) {
+body{
+	grid-template-rows: 100px 75px 120px 50px 100px 20px;
+	grid-template-columns: 840px auto;
+}
+.title{
+	grid-column-start: 1;
+	grid-column-end:3;
+}
+.title:hover{
+	text-decoration: underline
+}
+
+#photo{
+	border-bottom: 0;
+}
+.ntsphoto{
+	grid-column-start: 1;
+	grid-column-end:3;
+	grid-row-start: 2;
+	grid-row-end: 7;
+	width: 60%;
+    margin: 30px;
+}
+.opt{
+	text-align: left;
+}
+a{
+	text-decoration: none;
+	color:black;
+	font-size: 40px;
+	margin-right: 45px;
+}
+a:hover{
+	text-decoration: underline;
+}
+}
+
+</style>
+<body>
+	<div class="title">NTS <span id="radio">RADIO</span></div>
+	<div id="photo"><img class='ntsphoto' id='ntsphoto' src=photos/nts.png></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div class="opt"><a href="live.html">LIVE</a></div>
+</body>
+<script>
+	$(function() {
+    console.log( "ready!" );
+});
+	$("#ntsphoto").mouseover(function(){
+            var src = $(this).attr("src").match(/[^\.]+/) + "4.png";
+            $(this).attr("src", src);
+        })
+    $("#ntsphoto").mouseout(function() {
+            var src = $(this).attr("src").replace("4.png", ".png");
+            $(this).attr("src", src);
+        });
+</script>
