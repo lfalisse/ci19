@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+// var list = document.createElement('ul')
+
+// list.querySelectorAll("")
+
+console.log(document);
+document.body.style.backgroundColor = "#d6dddf"
+
+// create html element
+var header = document.createElement("h1");
+console.log(header);
+
+// put on page
+document.body.appendChild(header);
+
+header.innerHTML ="Louis"
+
+var image = document.createElement("img");
+document.body.appendChild(image);
+// bad code
+// image.src = "hello.gif";
+//gooder code
+image.setAttribute("src","hello.gif")
+</script>
+</body>
+</html>

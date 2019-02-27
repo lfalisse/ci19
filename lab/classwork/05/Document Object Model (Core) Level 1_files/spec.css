@@ -1,0 +1,66 @@
+ BODY { 
+        background-color: white;
+        color: black
+}
+
+.idl-code { 
+	font-family: monospace;
+	border: 1px solid black;
+	white-space: pre; 
+	color: black;
+	background-color: #dfdfdf; 
+}
+.java-code { 
+	font-family: monospace;
+	border: 1px solid black;
+	white-space: pre; 
+	color: black;
+	background-color: #dfdfdf; 
+}
+
+
+.code-block { 
+	font-family: monospace;
+	border: 1px solid black;
+	white-space: pre; 
+	color: black;
+	background-color: #dfdfdf; 
+}
+
+
+.ecma-block { 
+	border: 1px solid black;
+	color: black;
+	background-color: #dfdfdf; 
+}
+
+
+.interface-name {
+        font-weight: bold
+}
+
+
+.attribute-name {  
+        color: black;
+        background-color: #FFFFD2;
+
+}
+
+.method-name {  
+        color: black;
+        background-color: #D9E6F8;
+}
+
+.parameter-name {
+	margin-top: 1%;
+        background-color: #FEE6F8; 
+        color: black;
+}
+
+UL.toc, OL.toc {list-style: none}
+DIV.toc UL UL, DIV.toc OL OL {margin-left: 0}
+DIV.toc UL UL UL, DIV.toc OL OL OL {margin-left: 1em}
+DIV.toc UL UL UL UL, DIV.toc OL OL OL OL {margin-left: 0}
+LI.tocline1 {font-weight: bold}
+LI.tocline2 {font-weight: normal}
+LI.tocline4 {font-style: italic}

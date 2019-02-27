@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style>
+html, body{
+	height: 100%;
+}
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+}
+h1{
+	/*either vw or vh, whichever is smaller*/
+	font-size: 25vmin; 
+}
+</style>
+</head>
+<body>
+<h1></h1>
+<script>
+var headers= document.querySelectorAll("h1")
+console.log(headers);
+
+var header = headers[0];
+console.log(header);
+
+if (Math.random() < 0.5) {
+	header.innerHTML="yes"
+} else {
+	header.innerHTML="No"
+}
+
+</script>
+</body>
+</html>
