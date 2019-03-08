@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900');
+body {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+    font-size: 40px;
+/*    background-color: #e0e0e0;*/
+    background-image: url("images/white.jpg");
+    background-size: cover;
+}
+#title{
+  font-family: 'Rubik:700', sans-serif;
+  top: -4%;
+  left: 2.2%;
+  position: absolute;
+  letter-spacing: -4px;
+}
+#container {
+  height: 69%;
+  width: 49%;
+  position: absolute;
+  z-index: 100;
+  top: 25%;
+  left: 3%;
+  outline: 2px solid black;
+}
+.inner {
+  /*display:block;*/
+}
+svg{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: auto;
+  z-index: 100;
+  display: block;
+  filter: url(#blur);
+}
+.letters{
+  height: 100%;
+  width: 100%;
+}
+#circle{
+  fill: white;
+  opacity: 0.8;
+}
+#typecont{
+  /*font-family: 'Roboto Condensed';*/
+  height: 62%;
+  width: 25%;
+  line-height: 3;
+  position: absolute;
+  z-index: 100;
+  top: 28%;
+  left: 55%;
+  background-color: #d4d4d4;
+  opacity: 0.6;
+}
+#type{
+  height: 90%;
+  width: 76%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 17px;
+  word-wrap: break-word;
+  font-size: 15px;
+  color: #a5a5a5;
+  color: #989898;
+  text-align: center;
+}
+#check{
+  top: 5%;
+  left: 60%;
+  position: absolute;
+}
+input[type="checkbox"] {
+  transform: scale(2.5);
+}
+#lines{
+  display: none;
+}
+#txt{
+  top:0%;
+  left:0%;
+}
+
+
