@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Proza+Libre');
+body {
+        font-family: 'Proza Libre', monospace;
+        font-size: 72px;
+        line-height: 1em;
+        background-color: #e4decd;
+}
+#container {
+  background-color: #f3e6d0;
+  width: 1000px;
+  padding: 50px;
+  margin: 50px auto;
+  word-wrap: break-word;
+  text-align:center;
+}
+.inner {
+  /*display:block;*/
+}
+#cursor {
+  animation: blinker 1s step-end infinite; 
+  /*you can change 'step-end' to 'linear' for smooth transition*/
+}
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
