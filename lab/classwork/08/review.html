@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<title>review</title> 
+<script>
+	// 7 things that can go into a variable
+
+// var nothing = undefined;   or   var nothing; 
+var bool= true;
+var string="hi";
+var number= 3.14
+var array = [];
+var object= {};
+var func= function(argument){}
+// 3 things functions are good for
+// store code for later
+// arguments (shape the function, return different everytime)
+// turn into something
+
+
+// Array
+var weatherArray = [
+	5, 20, false
+];
+
+console.log(weatherArray)
+
+// we don't know what above variables are
+// this is what objects solve
+
+var weather = {
+	temperature : 5 ,
+	humidity : 20,
+	raining : false,
+};
+
+console.log(weather);
+console.log(weather["humidity"]);
+console.log(weather.humidity); // simpler than above (. = going inside)
+
+console.log(console);
+console["log"]("hello");
+
+// level 1: "nyc", "brussels"
+// level 2: "temperature" ...
+// level 3 for temperature only: array of numbers
+var weathers = {
+	nyc : {
+		temperature : [5, 10, 15] ,
+		humidity : 20,
+		raining : false,
+},
+	brus : {
+		temperature : [8, 15, 3] ,
+		humidity : 72,
+		raining : true,
+}
+};
+
+console.log(weathers);
+console.log(weathers.brus.temperature[2])
+</script>

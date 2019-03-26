@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+html, body{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	margin: 0;
+}
+h1{
+	font-size: 50vmin;
+	font-family: sans-serif;
+}
+</style>
+<body>
+	<h1 id="hex-color"></h1>
+<script>
+
+// goal is to create random hex color
+// like; #96FF16
+// 0-9 = 10 options
+// A-F = 6 options
+// 16 options per digit
+
+var choices = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","a","b","c","d","e","f"]
+console.log(choices);
+
+//math.floor makes 8.324324 = 8
+
+
+//-----------------Random Array Choice--------------
+var random = Math.floor(Math.random()*16);
+var hex =console.log(choices [random])
+
+var hexColor = "#";
+
+hexColor = hexColor + choices [Math.floor(Math.random()*16)];
+hexColor = hexColor + choices [Math.floor(Math.random()*16)];
+hexColor = hexColor + choices [Math.floor(Math.random()*16)];
+hexColor = hexColor + choices [Math.floor(Math.random()*16)];
+hexColor = hexColor + choices [Math.floor(Math.random()*16)];
+hexColor = hexColor + choices [Math.floor(Math.random()*16)];
+
+console.log(hexColor);
+document.body.style.backgroundColor = hexColor;
+document.querySelector("#hex-color").innerHTML = hexColor;
+
+</script>
+</body>
+</html>
