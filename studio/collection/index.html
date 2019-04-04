@@ -3,24 +3,54 @@
 <head>
 	<title></title>
 <style>
+	body{
+		font-family: 'Funktional Grotesk TRIAL';
+		font-weight: normal;
+		font-style: normal;
+		font-size: 290%;
+	}
 	#text{
-
+		margin: 0 auto;
+		height: 500px;
+    	width: 79%;
+    	margin-top: 10%;
+    	z-index: 200;
+    	text-align: center;
+    	position: relative;
+	}
+	span{
+		display: inline-block;
 	}
 </style>
 </head>
 <body>
 <div id="text">
+	<span class=group id=17>2017</span><span>,</span><span class=group id=18> 2018</span><span>,</span><span class=group id=19> 2019</span><span>,</span><span class=group id=NY> New York</span><span>,</span><span class=group id=UK> United Kingdom</span><span>,</span><span class=group id=BEL> Belgium</span><span>, </span>
 </div>
 
 
 <script>
-	var url = "mydata.json"
+	var url = "https://raw.githubusercontent.com/lfalisse/ci19/master/studio/collection/mydata.json"
 
 	fetch(url)
-	.then(function(data){return data.json();})	
-	.then(function(json){sortData(json);})
+	.then(function(response){return response.json();})
+	.then(function(json){buildPage(json);})
 
-	console.log(json)
+	var textdiv = document.getElementById(text);
+
+function buildPage(data) {
+	for(var i = 0; i < data.length; i = i + 1){
+		// var month = document.createElement("span");
+		// var year = document.createElement("span");
+		// var largeloc = document.createElement("span");
+		// document.getElementById("text").appendChild(year);
+		// document.getElementById("text").appendChild(month);
+		// document.getElementById("text").appendChild(largeloc);
+		// month.innerHTML = data[i].month;
+		// year.innerHTML = data[i].year;
+		// largeloc.innerHTML = data[i].largeloc;
+	}
+}
 </script>
 </body>
 </html>
