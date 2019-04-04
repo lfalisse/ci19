@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style>
+	#text{
+
+	}
+</style>
+</head>
+<body>
+<div id="text">
+</div>
+
+
+<script>
+	var url = "mydata.json"
+
+	fetch(url)
+	.then(function(data){return data.json();})	
+	.then(function(json){sortData(json);})
+
+	console.log(json)
+</script>
+</body>
+</html>

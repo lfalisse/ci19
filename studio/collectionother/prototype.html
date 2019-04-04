@@ -12,9 +12,10 @@
 		font-size: 290%;
 	}
 	img{
-		width: 20%;
-		z-index: 50;
-		position: absolute;
+		width: 25%;
+        z-index: 50;
+        position: absolute;
+        display: none;
 	}
 	#text{
 		margin: 0 auto;
@@ -40,12 +41,19 @@
 	#chi{
 		display: none;
 	}
+        #Ma18{
+    margin-top: -74%;
+    margin-left: 20%;
+    }
 </style>
 </head>
 <body>
 	<div id=text>
 			<span class=group id=17>2017</span><span>, </span><span class=group id=18>2018</span><span>, </span><span class=group id=19>2019</span><span>, </span><span class=group id=NY>New York</span><span>, </span><span class=group id=UK>United Kingdom</span><span>, </span><span class=group id=BEL>Belgium</span><span>, </span>
 	</div>
+ <div id=images>
+    <img id=Ma18 src=images/6.jpg>
+</div>
 <script>
 //IMAGE ON HOVER
 // var offsets = document.getElementById('NY').getBoundingClientRect();
@@ -53,14 +61,33 @@
 // var left = offsets.left;
 // var imagediv = document.getElementById('images');
 
-
+$('.myClass').click(function() {
+  var clicks = $(this).data('clicks');
+  if (clicks) {
+     // odd clicks
+  } else {
+     // even clicks
+  }
+  $(this).data("clicks", !clicks);
+});
  //EXPAND MAIN CATEGORIES
- $("#17").one('click', function(){
-    $( "<span>, </span><span class=sub id=Apr17>April</span><span>, </span><span class=sub id=Oct17>October</span><span>, </span><span class=sub id=Dec17>December</span>" ).insertAfter( "#17" );
-   })
+ $("#17").click(function() {
+  var clicks = $(this).data('clicks');
+  if (clicks) {
+     $( "<span>, </span><span class=sub id=Apr17>April</span><span>, </span><span class=sub id=Oct17>October</span><span>, </span><span class=sub id=Dec17>December</span>" ).insertAfter( "#17" );
+   
+  } else {
+     // even clicks
+  }
+  $(this).data("clicks", !clicks);
+});
+    
  $("#18").one('click', function(){
     $( "<span>, </span><span class=sub id=Feb18>February</span><span>, </span><span class=sub id=Mar18>March</span><span>, </span><span class=sub id=Apr18>April</span><span>, </span><span class=sub id=May18>May</span><span>, </span><span class=sub id=Jun18>June</span><span>, </span><span class=sub id=Jul18>July</span><span>, </span><span class=sub id=Aug18>August</span><span>, </span><span class=sub id=Sep18>September</span><span>, </span><span class=sub id=Oct18>October</span><span>, </span><span class=sub id=Nov18>November</span>" ).insertAfter( "#18" );
    })
+ $("#18").mouseover(function(){
+    $("#Mar18").css("display","block")
+     })
  $("#19").one('click', function(){
 	$("<span>, </span><span class=sub id=Jan19>January</span>"
  	).insertAfter( "#19" );
