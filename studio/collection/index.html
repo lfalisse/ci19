@@ -1,56 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<title></title>
 <style>
-	body{
-		font-family: 'Funktional Grotesk TRIAL';
-		font-weight: normal;
-		font-style: normal;
-		font-size: 290%;
-	}
-	#text{
-		margin: 0 auto;
-		height: 500px;
-    	width: 79%;
-    	margin-top: 10%;
-    	z-index: 200;
-    	text-align: center;
-    	position: relative;
-	}
-	span{
-		display: inline-block;
-	}
+body{
+	font-family: 'Funktional Grotesk TRIAL';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 290%;
+}
+#text{
+	margin: 0 auto;
+	height: 500px;
+   	width: 79%;
+   	margin-top: 10%;
+   	z-index: 200;
+   	text-align: center;
+   	position: relative;
+}
+.group:hover{
+text-decoration: underline;
+}
+
 </style>
 </head>
 <body>
 <div id="text">
-	<span class=group id=17>2017</span><span>,</span><span class=group id=18> 2018</span><span>,</span><span class=group id=19> 2019</span><span>,</span><span class=group id=NY> New York</span><span>,</span><span class=group id=UK> United Kingdom</span><span>,</span><span class=group id=BEL> Belgium</span><span>, </span>
+	<span class=group id=17>2017</span><span>,</span><span class=group id=18> 2018</span><span>,</span><span class=group id=19> 2019</span><span>,</span><span class=group id=US> United States</span><span>,</span><span class=group id=UK> United Kingdom</span><span>,</span><span class=group id=BEL> Belgium</span><span>,</span><span class=group id=FR> France</span>
 </div>
 
 
 <script>
-	var url = "https://raw.githubusercontent.com/lfalisse/ci19/master/studio/collection/mydata.json"
+$("#17").click(function() {
+  var clicks = $(this).data('clicks');
+  if (clicks) {
+     $('.sub17').remove();
+   
+  } else {
+     $( "<span class=sub17>, </span><span class=sub17 id=Apr17><a>April</a></span><span class=sub17>, </span><span class=sub17 id=Oct17>October</span class=sub17><span class=sub17>, </span><span class=sub17 id=Dec17>December</span>" ).insertAfter( "#17" );
+  }
+  $(this).data("clicks", !clicks);
+});
 
-	fetch(url)
-	.then(function(response){return response.json();})
-	.then(function(json){buildPage(json);})
+$("#18").click(function() {
+  var clicks = $(this).data('clicks');
+  if (clicks) {
+     $('.sub18').remove();
+   
+  } else {
+     $( "<span class=sub18>, </span><span class=sub18 id=Jan18>January</span><span class=sub18>, </span><span class=sub18 id=Feb18>February</span><span class=sub18>, </span><span class=sub18 id=Mar18>March</span><span class=sub18>, </span><span class=sub18 id=Apr18>April</span><span class=sub18>, </span><span class=sub18 id=May18>May</span><span class=sub18>, </span><span class=sub18 id=Jun18>June</span><span class=sub18>, </span><span class=sub18 id=Jul18>July</span><span class=sub18>, </span><span class=sub18 id=Aug18>August</span><span class=sub18>, </span><span class=sub18 id=Sep18>September</span><span class=sub18>, </span><span class=sub18 id=Oct18>October</span><span class=sub18>, </span><span class=sub18 id=Nov18>November</span>" ).insertAfter( "#18" );
+  }
+  $(this).data("clicks", !clicks);
+});
 
-	var textdiv = document.getElementById(text);
+$("#19").click(function() {
+  var clicks = $(this).data('clicks');
+  if (clicks) {
+     $('.sub19').remove();
+   
+  } else {
+     $( "<span class=sub19>, </span><span class=sub19 id=Jan19>January</span>" ).insertAfter( "#19" );
+  }
+  $(this).data("clicks", !clicks);
+});
 
-function buildPage(data) {
-	for(var i = 0; i < data.length; i = i + 1){
-		// var month = document.createElement("span");
-		// var year = document.createElement("span");
-		// var largeloc = document.createElement("span");
-		// document.getElementById("text").appendChild(year);
-		// document.getElementById("text").appendChild(month);
-		// document.getElementById("text").appendChild(largeloc);
-		// month.innerHTML = data[i].month;
-		// year.innerHTML = data[i].year;
-		// largeloc.innerHTML = data[i].largeloc;
-	}
-}
+
 </script>
 </body>
 </html>

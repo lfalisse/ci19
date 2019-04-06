@@ -23,6 +23,7 @@ function sortData(json) {
 
 	var pop = document.createElement("h2");
 	document.body.appendChild(pop)
+	// pop.style.position= "absolute;"
 
 	for (var i = 0; i < cities.length; i+=1){
 		var city= document.createElement("h1");
@@ -31,6 +32,8 @@ function sortData(json) {
 		document.body.appendChild(city);
 		city.onmouseover = function(event) {
 			pop.innerHTML = cities[event.target.counter].population;
+			// pop.style.top = event.target.style.top;
+			// pop.style.top = event.target.style.top;
 		}
 	}
 }
