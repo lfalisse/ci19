@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<style>
+body{
+    font-family: 'Funktional Grotesk TRIAL';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 290%;
+}
+#text{
+    margin: 0 auto;
+    height: 500px;
+    width: 79%;
+    margin-top: 10%;
+    z-index: 200;
+    text-align: center;
+    position: relative;
+}
+.group:hover{
+text-decoration: underline;
+}
+.sub17,.sub18,.sub19{
+
+}
+a{
+    text-decoration: none;
+    color: black;
+    transition: all 0.5s ease;
+}
+a:hover{
+    color: #00000096;
+}
+</style>
+</head>
+<body>
+<div id=text>
+    <div id=years></div>
+    <div id=largeloc></div>
+</div>
+
+</div>
+<script>
+var url = "https://raw.githubusercontent.com/lfalisse/ci19/master/studio/collection/mydata.json";
+
+fetch(url)
+    .then(function(response){return response.json();})  
+    .then(function(json){buildPage(json);})
+
+function buildPage(data) {
+    var array = data;
+
+    // console.log(array);
+    
+    var arr = array.filter(function(el){ return el.year == urlParams.get('year') && el.month == urlParams.get('month') ;});
+
+    console.log(arr);
+
+    for(var i = 0; i < arr.length; i = i + 1){
+        var month = document.createElement("span");
+        var year = document.createElement("span");
+        var largeloc = document.createElement("span");
+        var loc = document.createElement("span");
+        
+        document.getElementById("years").appendChild(year);
+        document.getElementById("months").appendChild(month);
+        document.getElementById("largeloc").appendChild(largeloc);
+        document.getElementById("locations").appendChild(loc);
+        document.getElementById("awareness").appendChild(aware);
+        document.getElementById("subjects").appendChild(subjamt);
+        document.getElementById("images").appendChild(img)
+        month.innerHTML = arr[i].month +" " + arr[i].year;
+        year.innerHTML = arr[i].year;
+        largeloc.innerHTML = arr[i].largeloc;
+        aware.innerHTML = arr[i].awareness;
+        subjamt.innerHTML = arr[i].subjectamt;
+        loc.innerHTML = arr[i].location;
+        img.src = "images/" +""+ arr[i].image;
+        var $PosTop = $("#locations").last().offset().top
+        var $PosLeft = $("#locations").last().offset().left
+        // img.style = locposition;
+        // $(img).last().css( "left", locposition.top);
+        // $(img).last().css( "top", locposition.left);
+        $(img).css({top: $PosTop, left: $PosLeft})
+        // img.style.top = locposition.top;
+        // ($("#images :last-child").last().css(locposition));
+        // img.css(locposition)
+        // img.setAttribute("style", "left: position.left; top: position.top;");
+        // img.style.left = position.left;
+        // img.style.top = position.top;
+    }
+}
+
+</script>
+</body>
+</html>

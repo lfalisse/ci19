@@ -2,10 +2,11 @@
 <html>
 <head>
 	<title></title>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <style>
 body{
 	font-family: 'Funktional Grotesk TRIAL';
-	font-weight: normal;
+	font-weight: 600;
 	font-style: normal;
 }
 #text{
@@ -13,35 +14,48 @@ body{
 	width: 72%;
     margin: 0 auto;
 	grid-auto-flow: column;
-	margin-top: 10%;
-}
-#years{
+	margin-top: 12%;
+	font-size: 140%;
+	line-height: 1.7;
+	z-index: 10;
+	position: relative;
 }
  #months{
-
+ 	word-spacing: 3px;
  } 
- #locations{
-
- } 
- #largeloc{
-
- } 
- #awareness{
-
+ #months, #largeloc, #locations, #awareness, #subjects{
+ 	position: unset;
+    z-index: initial;
  } 
  #subjects{
  	text-align: right;
+ }
+ img{
+ 	z-index: -1;
+ 	width: 31%;
+    display: none;
+    margin-top: -164px;
+    margin-left: -77px;
+    position: absolute;
+ }
+
+ p:hover img{
+ 	display: block;
  }
 </style>
 </head>
 <body>
 <div id=text>
 	<div id=months></div>
-	<div id=years></div>
-	<div id=locations></div>
+	<!-- <div id=years></div> -->
+	<div id=locations>
+	</div>
 	<div id=largeloc></div>
 	<div id=awareness></div>
 	<div id=subjects></div>
+</div>
+<div id=images>
+
 </div>
 <script>
 var url = "https://raw.githubusercontent.com/lfalisse/ci19/master/studio/collection/mydata.json";
@@ -61,13 +75,18 @@ urlParams.toString();   // type=product&id=1234
 // console.log(urlParams.toString('month'))
 console.log(urlParams.get('year'))
 console.log('"'+urlParams.get('month')+'"')
+console.log('"'+urlParams.get('largeloc')+'"')
+console.log('"'+urlParams.get('location')+'"')
 
 function buildPage(data) {
 	var array = data;
 
 	// console.log(array);
 	
-	var arr = array.filter(function(el){ return el.year == urlParams.get('year') && el.month == urlParams.get('month') ;});
+	var arr = array.filter(function(el){ 
+		return el.year == urlParams.get('year') && el.month == urlParams.get('month') ||
+		el.largeloc == urlParams.get('largeloc') | el.location == urlParams.get('location');
+	});
 
 	console.log(arr);
 
@@ -76,23 +95,28 @@ function buildPage(data) {
 		var year = document.createElement("p");
 		var largeloc = document.createElement("p");
 		var loc = document.createElement("p");
+		loc.setAttribute("id", "loc");
 		var aware = document.createElement("p");
 		var subjamt = document.createElement("p");
-		document.getElementById("years").appendChild(year);
+		var img = document.createElement("img");
+		
 		document.getElementById("months").appendChild(month);
 		document.getElementById("largeloc").appendChild(largeloc);
 		document.getElementById("locations").appendChild(loc);
 		document.getElementById("awareness").appendChild(aware);
 		document.getElementById("subjects").appendChild(subjamt);
-		month.innerHTML = arr[i].month;
+		var imgsrc = arr[i].image;
+		month.innerHTML = arr[i].month +" " + arr[i].year +""+ '<img src="images/' + imgsrc + ' ">';
 		year.innerHTML = arr[i].year;
-		largeloc.innerHTML = arr[i].largeloc;
+		largeloc.innerHTML = arr[i].largeloc +""+ '<img src="images/' + imgsrc + ' ">';
 		aware.innerHTML = arr[i].awareness;
 		subjamt.innerHTML = arr[i].subjectamt;
-		loc.innerHTML = arr[i].location;
-	}
+		loc.innerHTML = arr[i].location +""+ '<img src="images/' + imgsrc + ' ">';
+	// 	$(this).mouseover(function(){
+	// 		this.html = '<img src="images/' + imgsrc + ' " display="block">';
+	// });
+};
 }
-
 </script>
 </body>
 </html>
