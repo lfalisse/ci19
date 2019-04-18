@@ -1,0 +1,18 @@
+{
+	"instructions": "What is breaking this code? <!DOCTYPE html><title></title><style> body{ display:grid; grid-template-columns:auto; grid-template-rows:100px 75px 120px 50px 100px 20px;}@media (hover) and (min-width:600px) { body{ grid-template-columns: 100px auto 100px ; grid-template-rows: 100px 500px; }}@media (hover) and (min-width:1000px) { body{ grid-template-columns: 200px auto 200px ; grid-template-rows: 100px 500px; }}div:nth-child(odd){ background-color: green;}div:nth-child(even){ background-color: lightgreen;}</style><body> <div class=""></div> <div class=""></div> <div class=""></div> <div class=""></div> <div class=""></div> <div class=""></div></body></html>",
+	"": "",
+	"": "",
+	"": "",
+	"Missing 1/2 Title Tag": "https://google.com",
+	"THE CODE IS CORRECT": "https://google.com",
+	"Column and Row Conflict": "https://google.com",
+	"THE CODE IS CORRECT": "https://google.com",
+	"Missing 2/2 Body Tag": "https://gph.is/2eS0bxp",
+	"THE CODE IS CORRECT": "https://google.com",
+	"Missing 1/2 Body Tag": "https://google.com",
+	"THE CODE IS CORRECT": "https://google.com",
+	"THE CODE IS CORRECT": "https://google.com",
+	"THE CODE IS CORRECT": "https://google.com",
+	"THE CODE IS CORRECT": "https://google.com",
+	"Row and Column Conflict": "https://google.com",
+}
