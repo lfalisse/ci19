@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script>
+let startURL = "https://raw.githubusercontent.com/tifftothetong/ci19/master/lab/classwork/11/lostdog.json";
+
+start(startURL);
+
+function start(url) {
+	fetch(url)
+		.then(function(response){ return response.json(); })
+		// .then(function(json){ console.log(json); })
+		.then(function(json){ step2(json["56th & 9th ave "]); })
+}
+function step2(url) {
+	fetch(url)
+		.then(function(response){ return response.json(); })
+		// .then(function(json){ console.log(json); })
+		.then(function(json){ step3(json["Ki-iro"]); })
+}
+function step3(url) {
+	fetch(url)
+		.then(function(response){ return response.json(); })
+		.then(function(json){ step4(json["corgi"]); })
+}
+function step4(url) {
+	fetch(url)
+		.then(function(response){ return response.json(); })
+		.then(function(json){ lastStep(json["2 + 5 = 3 + 4"]); })
+}
+function lastStep(imageURL) {
+	console.log("last", imageURL)
+	var image = document.createElement("img");
+	image.src = imageURL;
+	document.body.appendChild
+
+}
+
+</script>
+</body>
+</html>
