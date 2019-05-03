@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>NYPD DATABASE</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600|Cormorant+Unicase:500" rel="stylesheet">
 <style>
 body{
   background-color: black;
   -webkit-user-select: none;
+}
+h1, p{
+	transition: all 0.3s;
 }
 h1:hover{
 	color:#848484;
@@ -72,7 +75,6 @@ h1:hover + p{
 	float: right;
 }
 .detail{
-	margin-top: %;
 	line-height: 0.8;
 }
 .line1{
@@ -102,21 +104,36 @@ h1:hover + p{
     margin-left: 38.5%;
     margin-top: -9.9%;
     opacity: 0.4;
-}
+    transition: opacity 0.3s;
+ }
 .close:hover{
 	cursor: pointer;
+	opacity: 1;
 }
-@media only screen and (max-device-width: 1200px) {
-.left {
-  padding-right: 16vmin;
-  padding-left: 0vmin;
+#sort{
+	position: relative;
+    color: #3e3e3e;
+    float: right;
+    left: -3%;
 }
-
+#r{
+	color: #848484;
+	text-decoration: underline;
+}
+#l, a{
+	text-decoration: none;
+	color: #3e3e3e;
+}
+#l:hover{
+	color: #848484;
+	text-decoration: underline;
+	cursor: pointer;
 }
 </style>
 </head>
 <body>
 <div class="row">
+<p id="sort"><span id='r'>Recent</span><span> | </span><a id=link href="https://lfalisse.github.io/ci19/studio/api/sub.html"><span id='l'>Location</span></a></p>
 <div class="column left">
   	<div id="container"></div>
 </div>
