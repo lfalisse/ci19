@@ -24,7 +24,6 @@ h1:hover + p{
   float: left;
   color: #3e3e3e;
 }
-#container{}
 .left {
   width: 25%;
   padding:8vmin;
@@ -107,6 +106,13 @@ h1:hover + p{
 .close:hover{
 	cursor: pointer;
 }
+@media only screen and (max-device-width: 1200px) {
+.left {
+  padding-right: 16vmin;
+  padding-left: 0vmin;
+}
+
+}
 </style>
 </head>
 <body>
@@ -150,15 +156,15 @@ function distance(lat1, lon1, lat2, lon2) {
 
 function buildApp(json) {
 	let crimes = json;
-	// crimes.sort(function(a,b){
-	// 	return distance(a.latitude, a.longitude, lat, lon) - 
-	// 		   distance(b.latitude, b.longitude, lat, lon); 
-	// });
-	crimes.sort(function compare(a, b) {
-  		var dateA = new Date(a.cmplnt_fr_dt);
-  		var dateB = new Date(b.cmplnt_fr_dt);
-  		return dateB - dateA;
-});
+	crimes.sort(function(a,b){
+		return distance(a.latitude, a.longitude, lat, lon) - 
+			   distance(b.latitude, b.longitude, lat, lon); 
+	});
+	// crimes.sort(function compare(a, b) {
+ //  		var dateA = new Date(a.cmplnt_fr_dt);
+ //  		var dateB = new Date(b.cmplnt_fr_dt);
+ //  		return dateB - dateA;
+// });
 	let latpresent = crimes.filter(function(obj){
   	if('latitude' in obj){
       return obj;
@@ -261,9 +267,9 @@ function buildApp(json) {
 
 		let url2= 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lati+','+long+'&sensor=true&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs';
 		console.log(url2);
-		document.getElementById("mapimg").src="https://maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"	&size=250x190&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs";
+		document.getElementById("mapimg").src="https://maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"&size=250x190&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs";
 		var mapimgsrc = document.getElementById("mapimg").src;
-		link.setAttribute("href", "https://maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"	&size=1800x1200&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs");
+		link.setAttribute("href", "https://maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"&size=1800x1200&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs");
         }    
     })(i);
  };
@@ -315,10 +321,7 @@ function buildApp(json) {
 // 	}
 // 	 $(this).data("clicks", !clicks);
 // });
-
-
 }
-
 
 
 // run the app
