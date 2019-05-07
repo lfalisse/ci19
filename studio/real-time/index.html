@@ -24,6 +24,9 @@ h1:hover{
 h1:hover + p{
 	color:#848484;
 }
+.row{
+	width:100%;
+}
 .col1date{
 	margin-top: -11%;
     line-height: 4;
@@ -33,15 +36,19 @@ h1:hover + p{
   color: #3e3e3e;
 }
 .left {
-  width: 25%;
-  padding:8vmin;
-  padding-left: 21vmin;
+  width: 37%;
   font-family: 'Cormorant Garamond', serif;
 }
+#container{
+  padding:8vmin;
+  padding-left: 21vmin;
+}
 .right {
-  width: 58%;
+      left: 36%;
+    width: 61%;
   font-family: 'Cormorant Garamond', serif;
   color:#848484;
+  position: fixed
 }
 .infobox{
 	height: 460px;
@@ -49,7 +56,7 @@ h1:hover + p{
     background-color: #252525;
     border: 1px solid #797979;
    box-shadow: 0 4px 8px 0 rgba(173, 173, 173, 0.8), 0 6px 20px 0 rgba(107, 107, 107, 0.59);
-    position: fixed;
+    /*position: fixed;*/
     margin: 102px;
     display: none;
 }
@@ -107,9 +114,9 @@ span:first-letter{
 .close{
 	font-size: 4.9vmin;
     font-family: sans-serif;
-    position: fixed;
-    margin-left: 38.5%;
-    margin-top: 32.6%;
+    position: absolute;
+    margin-left: 69vmin;
+    margin-top: 58vmin;
     opacity: 0.4;
     transition: opacity 0.3s;
  }
@@ -118,10 +125,9 @@ span:first-letter{
 	opacity: 1;
 }
 #sort{
-	position: relative;
+	position: absolute;
     color: #3e3e3e;
-    float: right;
-    left: -3%;
+    margin-left: 88vmin;
 }
 #r{
 	color: #848484;
@@ -141,11 +147,11 @@ span:first-letter{
 </head>
 <body>
 <div class="row">
-<p id="sort"><span id='r'>Recent</span><span> | </span><a id=gitlink href="https://lfalisse.github.io/ci19/studio/real-time/sub.html"><span id='l'>Location</span></a></p>
 <div class="column left">
   	<div id="container"></div>
 </div>
 <div class="column right">
+  <p id="sort"><span id='r'>Recent</span><span> | </span><a id=gitlink href="https://lfalisse.github.io/ci19/studio/real-time/sub.html"><span id='l'>Location</span></a></p>
   <div class="infobox">
   	<!-- <img class='headerimg' src="images/apihead.jpg"> -->
   	<div class='close'>x</div>
