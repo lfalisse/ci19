@@ -58,7 +58,7 @@ body{
     margin: 0 auto;
     left: 0px;
     top: 0px;
-    height: 100vh;
+    width: 100vw;
     z-index: 40;
     transition: linear;
     mix-blend-mode: difference;
@@ -70,14 +70,14 @@ td{
 
 img{
     animation-name: slide ;
-    animation-duration:60s;
+    animation-duration:120s;
     animation-iteration-count:infinite;
     animation-timing-function: linear;
 }
 
     @keyframes slide {
-        from{left:0px;}
-        to{left:-500px;}
+        from{top:0px;}
+        to{top:-1530px;}
 }
 #clock{
     float: left;
@@ -89,7 +89,7 @@ img{
 </style>
 </head>
 <body scroll="no" style="overflow: hidden">
-<img id='calback' src=calback.jpg>
+<img id='calback' src=calback.png>
 <div id='proj'>
     <div id="calendar">
         <p id="clock"></p>

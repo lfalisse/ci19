@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NYPD DATABASE</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600|Cormorant+Unicase:500" rel="stylesheet">
+<style>
+body{
+  background-color: black;
+  -webkit-user-select: none;
+  /*text-transform: lowercase;*/
+}
+h1, p{
+	transition: all 0.3s;
+	text-transform: lowercase;
+}
+h1:first-letter, p:first-letter, span:first-letter{
+	text-transform: capitalize;
+}
+h1:hover{
+	color:#848484;
+	cursor: pointer;
+}
+h1:hover + p{
+	color:#848484;
+}
+.col1date{
+	margin-top: -11%;
+    line-height: 4;
+}
+.column {
+  float: left;
+  color: #3e3e3e;
+}
+.left {
+  width: 25%;
+  padding:8vmin;
+  padding-left: 21vmin;
+  font-family: 'Cormorant Garamond', serif;
+}
+.right {
+  width: 58%;
+  font-family: 'Cormorant Garamond', serif;
+  color:#848484;
+}
+.infobox{
+	height: 460px;
+    width: 520px;
+    background-color: #252525;
+    border: 1px solid #797979;
+   box-shadow: 0 4px 8px 0 rgba(173, 173, 173, 0.8), 0 6px 20px 0 rgba(107, 107, 107, 0.59);
+    position: fixed;
+    margin: 102px;
+    display: none;
+}
+.headerimg{
+	width:520px;
+	height:auto;
+}
+.image{
+	height: 301px;
+    width: 508px;
+    display: block;
+    position: relative;
+    margin: 6px;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
+    /*display: none;*/
+}
+.date{
+	float: right;
+	font-size: 2.7vmin;
+}
+.infotext{
+	margin:18px;
+	font-size: 4vmin;
+	line-height: 0.2;
+}
+.place{
+	float: right;
+}
+.line1{
+	font-size: 2.3vmin;
+}
+.line2{
+	font-size: 3vmin;
+	line-height: 1.3;
+}
+.line3{
+	margin-top: 5.5%;
+}
+
+.time{
+	font-size: 3.3vmin;
+}
+.specoffense{
+	font-size: 2.4vmin;
+}
+span:first-letter{
+	text-transform: capitalize;
+}
+.offense{
+	width: 52.3%;
+    display: inline-block;
+}
+.close{
+	font-size: 4.9vmin;
+    font-family: sans-serif;
+    position: fixed;
+    margin-left: 38.5%;
+    margin-top: 32.6%;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+ }
+.close:hover{
+	cursor: pointer;
+	opacity: 1;
+}
+#sort{
+	position: relative;
+    color: #3e3e3e;
+    float: right;
+    left: -3%;
+}
+#r{
+	color: #848484;
+	text-decoration: underline;
+}
+#l, a{
+	text-decoration: none;
+	color: #3e3e3e;
+	text-transform: capitalize;
+}
+#l:hover{
+	color: #848484;
+	text-decoration: underline;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="row">
+<p id="sort"><span id='r'>Recent</span><span> | </span><a id=gitlink href="https://lfalisse.github.io/ci19/studio/api/sub.html"><span id='l'>Location</span></a></p>
+<div class="column left">
+  	<div id="container"></div>
+</div>
+<div class="column right">
+  <div class="infobox">
+  	<!-- <img class='headerimg' src="images/apihead.jpg"> -->
+  	<div class='close'>x</div>
+  	<div class="image">
+  		<a id=link href=""><img id="mapimg"></a>
+  	</div>
+  	<div class="infotext">
+  		<p class=line1><span class=borough>Manhattan</span><span class=date>2018-06-05</span></p>
+  		<p class=line2><span class=offense>Petit Larceny</span><span class=place>(Street)</span></p>
+  		<div class="detail">
+  		<p class=line3><span class=time>9:00 - </span><span class=specoffense>Larceny, Petit from Auto</span></p>
+  		<!-- <p class=line4><span class=victim>Victim: </span><span class=victimdet>F24</span></p> -->
+  		</div>
+  	</div>
+  </div>
+  </div>
+</div>
+<script>
+var url = "https://data.cityofnewyork.us/resource/7x9x-zpz6.json";
+var lat= 40.7352;
+var lon= -73.9944;
+
+function callAPI() {
+	console.log("call api")
+	fetch(url)
+		.then(function(event){ return event.json(); })
+		.then(function(json){ buildApp(json); })
+}
+
+function distance(lat1, lon1, lat2, lon2) {
+	return Math.sqrt(Math.pow(lat1-lat2, 2) + Math.pow(lon1-lon2, 2));
+}
+
+function buildApp(json) {
+	let crimes = json;
+	// crimes.sort(function(a,b){
+	// 	return distance(a.latitude, a.longitude, lat, lon) - 
+	// 		   distance(b.latitude, b.longitude, lat, lon); 
+	// });
+
+	crimes.sort(function compare(a, b) {
+  		var dateA = new Date(a.cmplnt_fr_dt);
+  		var dateB = new Date(b.cmplnt_fr_dt);
+  		return dateB - dateA;
+});
+	let latpresent = crimes.filter(function(obj){
+  	if('latitude' in obj){
+      return obj;
+     }
+    });
+    console.log(latpresent)
+	let nearest = latpresent.slice(0, 50);
+	console.log(nearest);
+
+	//SORTING TO BUILDING
+
+	document.querySelector("#container").remove();
+
+	let container= document.createElement("div");
+	let left=document.querySelector(".left")
+	let right=document.querySelector(".right")
+	container.setAttribute("id", "container");
+	left.appendChild(container)
+	var childcount=[];
+	$('.close').click(function() {
+  $(".infobox").hide();
+});
+	
+
+	for(let i = 0; i < nearest.length; i = i+1){
+	
+		let h1 = document.createElement("h1");
+		h1.innerHTML = nearest[i].ofns_desc;
+		h1.setAttribute("id", "each-word");
+		let p = document.createElement("p");
+		p.className = "col1date";
+		p.setAttribute("id", "each-word");
+		let rawdate = nearest[i].cmplnt_fr_dt.substring(0, 10);
+		p.innerHTML = rawdate;
+		container.appendChild(h1);
+		container.appendChild(p);
+		(function(index){
+        h1.onclick = function(){
+              childcount.push(index);
+              console.log(childcount);
+              var last = childcount.slice(-1)[0]
+              console.log(last);
+
+              // first turn everything off. hide things
+		$(".infotext").empty();
+              // then show the thing that is this "index"
+        $(".infobox").show(); 
+		
+		let line1= document.createElement("p");
+			let borough = document.createElement("span");
+			let date = document.createElement("span");
+		let line2= document.createElement("p");
+			let offense = document.createElement("span");
+			let place = document.createElement("span");
+		let detaildiv= document.createElement("div");
+			let line3= document.createElement("p");
+				let time = document.createElement("span");
+				let specoffense = document.createElement("span");
+			let line4= document.createElement("p");
+				let victim = document.createElement("span");
+				let victimdet = document.createElement("span");
+		
+		borough.className = "borough";
+		borough.setAttribute("id", "each-word");
+		date.className = "date";
+		date.setAttribute("id", "each-word");
+		line1.className = "line1";
+		line2.className = "line2";
+		detaildiv.className = "detail";
+		detaildiv.setAttribute("id", "each-word");
+		line3.className = "line3";
+		line4.className = "line4";
+		offense.className = "offense"
+		offense.setAttribute("id", "each-word");
+		place.className = "place"
+		place.setAttribute("id", "each-word");
+		time.className = "time"
+		time.setAttribute("id", "each-word");
+		specoffense.className = "specoffense"
+		specoffense.setAttribute("id", "each-word");
+		victim.className = "victim"
+		victimdet.className = "victimdet"
+		
+		borough.innerHTML = nearest[last].boro_nm;
+		date.innerHTML = nearest[last].cmplnt_fr_dt.substring(0, 10);
+		offense.innerHTML = nearest[last].ofns_desc;
+		place.innerHTML = nearest[last].prem_typ_desc;
+		time.innerHTML = nearest[last].cmplnt_fr_tm.substring(0, 5) + " - ";
+		specoffense.innerHTML = nearest[last].pd_desc;
+		// victim = nearest[last].
+		// victimdet = nearest[last].vic_sex
+
+		let lati = nearest[last].latitude;
+		let long = nearest[last].longitude;
+
+		infotxt.appendChild(line1);
+			line1.appendChild(borough);
+			line1.appendChild(date);
+		infotxt.appendChild(line2);
+			line2.appendChild(offense);
+			line2.appendChild(place);
+		infotxt.appendChild(detaildiv)	
+			detaildiv.appendChild(line3);
+				line3.appendChild(time);
+				line3.appendChild(specoffense);
+			// detaildiv.appendChild(line4);
+			// 	line4.appendChild(victim);
+			// 	line4.appendChild(victimdet);
+// 		window.onload = function(){
+//   var elements = document.getElementsByID("each-word")
+//   for (var i=0; i<elements.length; i++){
+//     elements[i].innerHTML = elements[i].innerHTML.replace(/\\b([a-z])([a-z]+)?\\b/gim, "<span class='first-letter'>$1</span>$2")
+//   }
+// }
+		let url2= 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lati+','+long+'&sensor=true&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs';
+		console.log(url2);
+		document.getElementById("mapimg").src="https://maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"&size=510x330&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs";
+		var mapimgsrc = document.getElementById("mapimg").src;
+		link.setAttribute("href", "https://maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"&size=1800x1200&scale=2&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs");
+        }    
+    })(i);
+ };
+ 	String.prototype.toProperCase = function () {
+    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
+	// 2nd Column
+	
+	// let add = nearest[1].prem_typ_desc
+	// let borough = nearest[1].boro_nm;
+	// let time = nearest[1].cmplnt_fr_tm;
+	// let desc =	nearest[1].pd_desc
+	let infotxt=document.querySelector(".infotext")
+	
+	// let add = document.createElement("p");
+	// add.className = "place";
+	// let date = document.createElement("span");
+	// date.className = "date";
+	// let time = document.createElement("p");
+	// time.className = "time";
+	// let offense = document.createElement("p");
+	// offense.className = "offense";		
+	let link = document.getElementById("link")
+
+// 	$( "h1" ).click(function() {
+// 		var clicks = $(this).data('clicks');
+	
+// 	if (clicks) {
+// 		$(".infobox").toggle();
+// 		$(".infotext").empty();
+// 		// childcount.length = 0;
+		
+// 	} else {
+// 		$(".infobox").toggle();
+// 		let line1= document.createElement("p");
+// 		line1.className = "line1";
+// 		infotxt.appendChild(line1);
+		
+// 		let borough = document.createElement("span");
+// 		borough.className = "borough";
+// 		borough.innerHTML = nearest[childcount.length - 1].boro_nm;
+// 		let date = document.createElement("span");
+// 		date.className = "date";
+// 		date.innerHTML = nearest[childcount.length - 1].cmplnt_fr_dt.substring(0, 10);
+// 		line1.appendChild(borough);
+// 		line1.appendChild(date);
+
+// 		document.getElementById("mapimg").src="https://maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"	&size=250x190&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs";
+// 		var mapimgsrc = document.getElementById("mapimg").src;
+// 		link.setAttribute("href", "https://maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"	&size=1800x1200&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs");
+// 	}
+// 	 $(this).data("clicks", !clicks);
+// });
+
+
+}
+$(document).ready(function () {  
+            $("#each-word").keyup(function () {  
+                $('#each-word').css('textTransform', 'capitalize');  
+            });  
+        });  
+
+// run the app
+
+callAPI();
+// "#each-word".toProperCase();
+// setInterval(callAPI, 60000)
+</script>
+</body>
+</html>
