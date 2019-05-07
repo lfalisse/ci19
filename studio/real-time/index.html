@@ -307,9 +307,9 @@ function buildApp(json) {
 // }
 		let url2= 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lati+','+long+'&sensor=true&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs';
 		console.log(url2);
-		document.getElementById("mapimg").src="https://maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"&size=510x330&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs";
+		document.getElementById("mapimg").src="//maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"&size=510x330&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs";
 		var mapimgsrc = document.getElementById("mapimg").src;
-		link.setAttribute("href", "https://maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"&size=1800x1200&scale=2&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs");
+		link.setAttribute("href", "//maps.googleapis.com/maps/api/streetview?location="+lati+","+long+"&size=1800x1200&scale=2&key=AIzaSyCz_VPNqDNaRP7fl3oCw5C1jFASkDRhJIs");
         }    
     })(i);
  };
