@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-
+// titleMarquee();
 var entryCount = 0;
 var displayCount = 0;
 
@@ -44,9 +44,9 @@ var lastX, lastY;
 
 function createElement(k) {
 // $("#line").first().css("display","none")
-var max = 600;
-var max2= 450;
-var min = 5;
+var max = 1271;
+var max2= 690;
+var min = 0;
 var max1= 8;
 var min1= 2;
 
@@ -78,6 +78,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">a</span>');
+  $('title').html('A');
 }
   if (k == "b" || k == "B") {
   line.setAttribute("stroke", "#ededed");
@@ -85,6 +86,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">b</span>');
+  $('title').html('B');
 }
   if (k == "c" || k == "C") {
   line.setAttribute("stroke", "#e2e2e2");
@@ -92,6 +94,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">c</span>');
+  $('title').html('C');
 }
   if (k == "d" || k == "D") {
   line.setAttribute("stroke", "#d6d6d6");
@@ -99,6 +102,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">d</span>');
+  $('title').html('D');
 }
   if (k == "e" || k == "E") {
   line.setAttribute("stroke", "#cecece");
@@ -106,6 +110,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">e</span>');
+  $('title').html('E');
 }
   if (k == "f" || k == "F") {
   line.setAttribute("stroke", "#bcbcbc");
@@ -113,6 +118,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">f</span>');
+  $('title').html('F');
 }
   if (k == "g" || k == "G") {
   line.setAttribute("stroke", "#b2b2b2");
@@ -120,6 +126,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">g</span>');
+  $('title').html('G');
 }
   if (k == "h" || k == "H") {
   line.setAttribute("stroke", "#aaaaaa");
@@ -127,6 +134,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">h</span>');
+  $('title').html('H');
 }
   if (k == "i" || k == "I") {
   line.setAttribute("stroke", "#a5a5a5");
@@ -134,6 +142,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">i</span>');
+  $('title').html('I');
 }
   if (k == "j" || k == "J") {
   line.setAttribute("stroke", "#999999");
@@ -141,6 +150,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">j</span>');
+  $('title').html('J');
 }
   if (k == "k" || k == "K") {
   line.setAttribute("stroke", "#8e8e8e");
@@ -148,6 +158,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">k</span>');
+  $('title').html('K');
 }
   if (k == "l" || k == "L") {
   line.setAttribute("stroke", "#828282");
@@ -155,6 +166,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">l</span>');
+  $('title').html('L');
 }
   if (k == "m" || k == "M") {
   line.setAttribute("stroke", "#7a7a7a");
@@ -162,6 +174,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">m</span>');
+  $('title').html('M');
 }
   if (k == "n" || k == "N") {
   line.setAttribute("stroke", "#727272");
@@ -169,6 +182,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">n</span>');
+  $('title').html('N');
 }
   if (k == "o" || k == "O") {
   line.setAttribute("stroke", "#686868");
@@ -176,6 +190,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">o</span>');
+  $('title').html('O');
 }
   if (k == "p" || k == "P") {
   line.setAttribute("stroke", "#636363");
@@ -183,6 +198,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">p</span>');
+  $('title').html('P');
 }
   if (k == "q" || k == "Q") {
   line.setAttribute("stroke", "#5e5e5e");
@@ -190,6 +206,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">q</span>');
+  $('title').html('Q');
 }
   if (k == "r" || k == "R") {
   line.setAttribute("stroke", "#515151");
@@ -197,6 +214,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">r</span>');
+  $('title').html('R');
 }
   if (k == "s" || k == "S") {
   line.setAttribute("stroke", "#4c4c4c");
@@ -204,6 +222,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">s</span>');
+  $('title').html('S');
 }
   if (k == "t" || k == "T") {
   line.setAttribute("stroke", "#444444");
@@ -211,6 +230,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">t</span>');
+  $('title').html('T');
 }
   if (k == "u" || k == "U") {
   line.setAttribute("stroke", "#3d3d3d");
@@ -218,6 +238,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">u</span>');
+  $('title').html('U');
 }
   if (k == "v" || k == "V") {
   line.setAttribute("stroke", "#353535");
@@ -225,6 +246,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">v</span>');
+  $('title').html('V');
 }
   if (k == "w" || k == "W") {
   line.setAttribute("stroke", "#303030");
@@ -232,6 +254,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">w</span>');
+  $('title').html('W');
 }
   if (k == "x" || k == "X") {
   line.setAttribute("stroke", "#282828");
@@ -239,6 +262,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">x</span>');
+  $('title').html('X');
 }
   if (k == "y" || k == "Y") {
   line.setAttribute("stroke", "#212121");
@@ -246,6 +270,7 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">y</span>');
+  $('title').html('Y');
 }
   if (k == "z" || k == "Z") {
   line.setAttribute("stroke", "#000000");
@@ -253,7 +278,24 @@ lastY = randl;
   document.querySelector("#lines").appendChild(line);
   console.log(lastX, lastY);
   elem.before('<span class="inner">z</span>');
+  $('title').html('Z');
 }
+$(document).keypress(function(e) {
+  var text = document.getElementById("lines");
+    if(e.which == 32) {
+        if (text.style.display === "none") {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    
+    // text.toggle();
+    // text.style.display = "block";
+    }
+});
+//   if (e.keyCode === 13) {
+
+// }
 if (k == " ") { elem.before('<span class="inner">&nbsp;</span>'); }
   if (k == "1") {
   elem.before('<span class="inner">1</span>');
@@ -274,19 +316,25 @@ if (k == " ") { elem.before('<span class="inner">&nbsp;</span>'); }
   
 }
 })
-function myFunction() {
-  // Get the checkbox
-  var checkBox = document.getElementById("myCheck");
-  // Get the output text
-  var text = document.getElementById("lines");
+var titleText = document.title;
+function titleMarquee() {
+ titleText = titleText.substring(1, titleText.length) + titleText.substring(0, 1);
+ document.title = titleText;
+ setTimeout("titleMarquee()", 450);
+ }
+// function myFunction() {
+//   // Get the checkbox
+//   var checkBox = document.getElementById("myCheck");
+//   // Get the output text
+  
 
-  // If the checkbox is checked, display the output text
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-  }
-}
+//   // If the checkbox is checked, display the output text
+//   if (checkBox.checked == true){
+    
+//   } else {
+//     text.style.display = "none";
+//   }
+// }
 
 
 

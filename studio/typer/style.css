@@ -11,18 +11,25 @@ body {
 }
 #title{
   font-family: 'Rubik:700', sans-serif;
-  top: -4%;
-  left: 2.2%;
+  top: 0;
+  left: 158vmin;
   position: absolute;
-  letter-spacing: -4px;
+  font-size: 52%;
+  /* float: right; */
+  line-height: 18px;
+  text-align: center;
+  opacity: 0.6;
+}
+span{
+  font-size: 54%;
 }
 #container {
-  height: 69%;
-  width: 49%;
+  height: 100%;
+  width: 99.8%;
   position: absolute;
   z-index: 100;
-  top: 25%;
-  left: 3%;
+  top: 0.3%;
+  left: 0.1%;
   outline: 2px solid black;
 }
 .inner {
@@ -56,6 +63,7 @@ svg{
   left: 55%;
   background-color: #d4d4d4;
   opacity: 0.6;
+  display: none;
 }
 #type{
   height: 90%;
