@@ -64,7 +64,7 @@ circ.setAttribute('cx', randt);
 circ.setAttribute('cy', randl);
 circ.setAttribute('r', size);
 line.setAttribute("class", "line");
-line.setAttribute("stroke-width", ".5%")
+line.setAttribute("stroke-width", ".23%")
 circ.setAttribute("class", "circle");
 circ.setAttribute("fill", "white");
 // line.addClass("line");
