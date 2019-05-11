@@ -1,39 +1,175 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calendar</title>
+<title>Calendar</title>
+<link href="https://fonts.googleapis.com/css?family=Arimo:700|Lato:400,700,900" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <style>
-    td:nth-child(odd){
-        /*visibility: hidden;*/
-    }
+body{
+    font-family: 'Arimo', sans-serif;
+    font-size: 5vmin;
+    background-color: #181818;
+    color: white;
+}
+#proj{
+    text-align: center
+}
+table{
+    border-collapse: separate;
+    border-spacing: 80.95px 0;
+    z-index: 10;
+}
+td:first-child{
+    visibility: hidden;
+}
+td:last-child{
+    visibility: hidden;
+}
+#day31{
+    visibility: visible;
+}
+#calendar{
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+    text-align: right;
+    position: relative;
+    z-index: 20;
+    opacity: 0.80;
+    transition: linear;
+    z-index: 100;
+}
+/*#calendar:hover, #calback{
+    mix-blend-mode: normal;
+}*/
+#calendar-date{
+    font-weight: 700;
+    font-size: 71vmin;
+    letter-spacing: 13vmin;
+    position: relative;
+    margin: 0 auto;
+    top: -16vmin;
+    z-index: 100;
+}
+#calendar-month-year{
+    position: relative;
+    word-spacing: 7vmin;
+    font-weight: 700;
+    margin: 0;
+    float: right;
+    opacity: 0.7;
+    z-index: 100;
+}
+#calendar-container{
+    top: -29.2vmin;
+    left: 20.2vmin;
+    font-size: 6vmin;
+    position: relative;
+    color: grey;
+    z-index: 10;
+}
+#calback{
+    position: fixed;
+    margin: 0 auto;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    transition: linear;
+    opacity: 1;
+    z-index: 40;
+}
+#calback::before{
+    mix-blend-mode: difference;
+}
+td{
+    transition: linear;
+}
+
+img{
+    animation-name: slide ;
+    animation-duration:180s;
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+}
+
+    @keyframes slide {
+        from{top:0px;}
+        to{top:-1530px;}
+}
+#clock{
+    float: left;
+    position: relative;
+    /*bottom: 3vmin;*/
+    opacity: 0.7;
+    z-index: 100;
+}
+
 </style>
 </head>
-<body>
+<body scroll="no" style="overflow: hidden">
+    <div id="calendar">
+        <span id="clock"></span>
+        <!-- <p id="calendar-day"></p> -->
+        <span id="calendar-month-year"></span>
+        <p id="calendar-date"></p>
+    </div>
+<img id='calback' src=calback1.png>
 <div id="calendar-container">
-    <div id="calendar-header">
-        <span id="calendar-month-year1"></span>
-    </div>
-    <div id="calendar-dates1">
-    </div>
+ <div id="calendar-header">
+    <span id="calendar-month-year1"></span>
+ </div>
+ <div id="calendar-dates1"></div>
 </div>
+
 <script>
+//MAIN CALENDAR
+//this function will find today's date
+function calendar(){
+    var day=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var month=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var d=new Date();
+    // setText('calendar-day', day[d.getDay()]);
+    setText('calendar-date', d.getDate());
+    setText('calendar-month-year', month[d.getMonth()]+' '+(d.getYear()+1900));
+};
+
+//this function will set the text value of tags
+function setText(id, val){
+    if(val < 10){
+        val = '0' + val;    //add leading 0 if val < 10
+    }
+    document.getElementById(id).innerHTML = val;
+};
+
+//call calendar() when page load
+calendar();
+
+//SECOND CALENDAR
 window.onload = function(){
-    var d = new Date();
-    var month_name = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-    var month = d.getMonth();   //0-11
-    var year = d.getFullYear(); //2014
-    var first_date = month_name[month] + " " + 1 + " " + year;
+    var d1 = new Date();
+    var month_name1 = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var month1 = d1.getMonth();   //0-11
+    var year = d1.getFullYear(); //2014
+    var first_date = month_name1[month1] + " " + 1 + " " + year;
     //September 1 2014
     var tmp = new Date(first_date).toDateString();
     //Mon Sep 01 2014 ...
     var first_day = tmp.substring(0, 3);    //Mon
     var day_name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     var day_no = day_name.indexOf(first_day);   //1
-    var days = new Date(year, month+1, 0).getDate();    //30
+    var days = new Date(year, month1+1, 0).getDate();    //30
     //Tue Sep 30 2014 ...
     var calendar = get_calendar(day_no, days);
-    document.getElementById("calendar-month-year1").innerHTML = month_name[month]+" "+year;
+    // document.getElementById("calendar-month-year1").innerHTML = month_name[month]+" "+year;
     document.getElementById("calendar-dates1").appendChild(calendar);
+    var myVar = setInterval(function() {
+  myTimer();
+}, 1000);
+
+function myTimer() {
+  var d = new Date();
+  document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+}
 }
 
 function get_calendar(day_no, days){
@@ -43,7 +179,7 @@ function get_calendar(day_no, days){
     //row for the day letters
     for(var c=0; c<=6; c++){
         var td = document.createElement('td');
-        td.innerHTML = "SMTWTFS"[c];
+        td.innerHTML = " MTWTF "[c];
         tr.appendChild(td);
     }
     table.appendChild(tr);
@@ -78,6 +214,7 @@ function get_calendar(day_no, days){
                 return table;
             }
             var td = document.createElement('td');
+            td.setAttribute("id","day"+count);
             td.innerHTML = count;
             count++;
             tr.appendChild(td);
@@ -85,8 +222,36 @@ function get_calendar(day_no, days){
         table.appendChild(tr);
     }
     return table;
+
 }
 console.log(table);
+// setInterval(function(){
+//  $("#calendar-date").toggle();
+// },30)
+setInterval(function(){
+  var list = $("tr td").toArray();
+  var elemlength = list.length;
+  var randomnum = Math.floor(Math.random()*elemlength);
+  console.log(list)
+  // console.log(elemlength);
+  var randomitem = list[randomnum];
+  $(randomitem).css("opacity", "0.2"); 
+    },1600);
+setInterval(function(){
+  $(randomitem).css("opacity", "0.8"); 
+    },1600);
+// setInterval(function(){
+//   $(randomitem).css("opacity", "0.8"); 
+//     },4000);
+// $(function(){
+ 
+//   var list = $("ul li").toArray();
+//   var elemlength = list.length;
+//   var randomnum = Math.floor(Math.random()*elemlength);
+//   var randomitem = list[randomnum];
+//   $(randomitem).css("display", "block");
+ 
+// });
 </script>
 </body>
 </html>

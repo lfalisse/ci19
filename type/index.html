@@ -14,6 +14,20 @@ body{
 #proj{
     text-align: center
 }
+table{
+    border-collapse: separate;
+    border-spacing: 80.95px 0;
+    z-index: 10;
+}
+td:first-child{
+    visibility: hidden;
+}
+td:last-child{
+    visibility: hidden;
+}
+#day31{
+    visibility: visible;
+}
 #calendar{
     text-align: center;
     margin: 0 auto;
@@ -23,29 +37,33 @@ body{
     z-index: 20;
     opacity: 0.80;
     transition: linear;
+    z-index: 100;
 }
-#calendar:hover, #calback{
+/*#calendar:hover, #calback{
     mix-blend-mode: normal;
-}
+}*/
 #calendar-date{
     font-weight: 700;
-    font-size: 74vmin;
-    letter-spacing: -2.7vmin;
+    font-size: 71vmin;
+    letter-spacing: 13vmin;
     position: relative;
     margin: 0 auto;
     top: -16vmin;
+    z-index: 100;
 }
 #calendar-month-year{
     position: relative;
     word-spacing: 7vmin;
     font-weight: 700;
-    font-size: 9vmin;
     margin: 0;
-    left: -4.5vmin;
+    float: right;
+    opacity: 0.7;
+    z-index: 100;
 }
 #calendar-container{
-    top: -40vmin;
-    left: 39vmin;
+    top: -29.2vmin;
+    left: 20.2vmin;
+    font-size: 6vmin;
     position: relative;
     color: grey;
     z-index: 10;
@@ -59,10 +77,10 @@ body{
     left: 0px;
     top: 0px;
     width: 100vw;
-    z-index: 40;
     transition: linear;
     mix-blend-mode: difference;
     opacity: 1;
+    z-index: 40;
 }
 td{
     transition: linear;
@@ -70,7 +88,7 @@ td{
 
 img{
     animation-name: slide ;
-    animation-duration:120s;
+    animation-duration:180s;
     animation-iteration-count:infinite;
     animation-timing-function: linear;
 }
@@ -82,14 +100,14 @@ img{
 #clock{
     float: left;
     position: relative;
-    bottom: 3vmin;
+    /*bottom: 3vmin;*/
     opacity: 0.7;
+    z-index: 100;
 }
 
 </style>
 </head>
 <body scroll="no" style="overflow: hidden">
-<img id='calback' src=calback.png>
 <div id='proj'>
     <div id="calendar">
         <p id="clock"></p>
@@ -105,6 +123,9 @@ img{
     </div>
 </div>
 </div>
+<img id='calback' src=calback.png>
+    <span id="clock"></span>
+    <span id="calendar-month-year"></span>
 <script>
 //MAIN CALENDAR
 //this function will find today's date
@@ -163,7 +184,7 @@ function get_calendar(day_no, days){
     //row for the day letters
     for(var c=0; c<=6; c++){
         var td = document.createElement('td');
-        td.innerHTML = "SMTWTFS"[c];
+        td.innerHTML = " MTWTF "[c];
         tr.appendChild(td);
     }
     table.appendChild(tr);
