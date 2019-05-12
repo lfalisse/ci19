@@ -7,7 +7,7 @@
 <style>
 body{
     font-family: 'Arimo', sans-serif;
-    font-size: 5vmin;
+    font-size: 116%;
     background-color: #181818;
     color: white;
 }
@@ -16,7 +16,7 @@ body{
 }
 table{
     border-collapse: separate;
-    border-spacing: 3.2vmin 0;
+    border-spacing: 5.5vmin 0;
     z-index: 10;
 }
 td:first-child{
@@ -31,7 +31,7 @@ td:last-child{
 #calendar-container{
     transform: translate(-50%, -50%);
     top: 72%;
-    left: 51.9%;
+    left: 51.5%;
     font-size: 115%;
     position: absolute;
     color: grey;
@@ -55,30 +55,33 @@ td{
 
 img{
     animation-name: slide ;
-    animation-duration:60s;
+    animation-duration:15s;
     animation-iteration-count:infinite;
     animation-timing-function: linear;
 }
 img:hover{
+    transition-delay: 2s;
     animation-play-state:paused;
 }
 
     @keyframes slide {
         from{top:0px;}
-        to{top:-1530px;}
+        to{top:-206px;}
 }
-#clock{
-    left: 37.8%;
-    letter-spacing: 0.2em;
+#clock {
+    left: 38.1%;
+    letter-spacing: 0.6em;
     position: absolute;
-    /*opacity: 0.7;*/
-    /*z-index: 100;*/
+    /* opacity: 0.7; */
+    z-index: 100;
+    mix-blend-mode: exclusion;
+    color: #9a9a9a;
 }
 #calendar {
-    font-size: 128%;
-    padding-top: 16%;
+    font-size: 104%;
+    padding-top: 30%;
     padding-left: 4%;
-    word-spacing: 6.4vmin;
+    word-spacing: 1.4em;
     margin: 0 auto;
     width: 50%;
     position: relative;
@@ -91,8 +94,8 @@ img:hover{
     font-size: 86%;
 }
 #calendar-year{
-    padding-left: 24.8%;
-    word-spacing: 1.1em;
+    padding-left: 22%;
+    word-spacing: 1.5em;
 }
 #day13{
     color:white;
@@ -101,12 +104,12 @@ img:hover{
 </head>
 <body scroll="no" style="overflow: hidden">
     <span id="clock"></span>
+<img id='calback' src=calback1.png>
     <div id="calendar">
         <span id="calendar-month"></span>
         <span id="calendar-date"></span>
         <span id="calendar-year"></span>
     </div>
-<img id='calback' src=calback1.png>
 <div id="calendar-container">
  <div id="calendar-dates1"></div>
 </div>
