@@ -28,52 +28,20 @@ td:last-child{
 #day31{
     visibility: visible;
 }
-#calendar{
-    text-align: center;
-    margin: 0 auto;
-    width: 50%;
-    text-align: right;
-    position: relative;
-    z-index: 20;
-    opacity: 0.80;
-    transition: linear;
-    z-index: 100;
-}
-/*#calendar:hover, #calback{
-    mix-blend-mode: normal;
-}*/
-#calendar-date{
-    font-weight: 700;
-    font-size: 71vmin;
-    letter-spacing: 13vmin;
-    position: relative;
-    margin: 0 auto;
-    top: -16vmin;
-    z-index: 100;
-}
-#calendar-month-year{
-    position: relative;
-    word-spacing: 7vmin;
-    font-weight: 700;
-    margin: 0;
-    float: right;
-    opacity: 0.7;
-    z-index: 100;
-}
 #calendar-container{
-    top: -29.2vmin;
-    left: 20.2vmin;
+    transform: translate(-50%, -50%);
+    top: 72%;
+    left: 50.9%;
     font-size: 6vmin;
-    position: relative;
+    position: absolute;
     color: grey;
     z-index: 10;
 }
 #calback{
     position: fixed;
+    display: block;
+    width: 100%;
     margin: 0 auto;
-    left: 0px;
-    top: 0px;
-    width: 100vw;
     transition: linear;
     opacity: 1;
     z-index: 40;
@@ -87,9 +55,12 @@ td{
 
 img{
     animation-name: slide ;
-    animation-duration:180s;
+    animation-duration:60s;
     animation-iteration-count:infinite;
     animation-timing-function: linear;
+}
+img:hover{
+    animation-play-state:paused;
 }
 
     @keyframes slide {
@@ -97,27 +68,46 @@ img{
         to{top:-1530px;}
 }
 #clock{
-    float: left;
-    position: relative;
-    /*bottom: 3vmin;*/
-    opacity: 0.7;
-    z-index: 100;
+    left: 38.1%;
+    letter-spacing: 3.7vmin;
+    position: absolute;
+    /*opacity: 0.7;*/
+    /*z-index: 100;*/
 }
-
+#calendar {
+    font-size: 128%;
+    padding-top: 16%;
+    padding-left: 4%;
+    word-spacing: 6.4vmin;
+    margin: 0 auto;
+    width: 50%;
+    position: relative;
+    /*z-index: 80;*/
+    transition: linear
+}
+#calendar-date{
+}
+#calendar-month{
+    font-size: 86%;
+}
+#calendar-year{
+    padding-left: 24.8%;
+    word-spacing: 9vmin;
+}
+#day13{
+    color:white;
+}
 </style>
 </head>
 <body scroll="no" style="overflow: hidden">
+    <span id="clock"></span>
     <div id="calendar">
-        <span id="clock"></span>
-        <!-- <p id="calendar-day"></p> -->
-        <span id="calendar-month-year"></span>
-        <p id="calendar-date"></p>
+        <span id="calendar-month"></span>
+        <span id="calendar-date"></span>
+        <span id="calendar-year"></span>
     </div>
 <img id='calback' src=calback1.png>
 <div id="calendar-container">
- <div id="calendar-header">
-    <span id="calendar-month-year1"></span>
- </div>
  <div id="calendar-dates1"></div>
 </div>
 
@@ -126,11 +116,12 @@ img{
 //this function will find today's date
 function calendar(){
     var day=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    var month=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var month=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
     var d=new Date();
     // setText('calendar-day', day[d.getDay()]);
     setText('calendar-date', d.getDate());
-    setText('calendar-month-year', month[d.getMonth()]+' '+(d.getYear()+1900));
+    setText('calendar-month', month[d.getMonth()]);
+    setText('calendar-year', '20 ' + (d.getYear()-100));
 };
 
 //this function will set the text value of tags
@@ -147,10 +138,11 @@ calendar();
 //SECOND CALENDAR
 window.onload = function(){
     var d1 = new Date();
-    var month_name1 = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var month_name1 = ['"01"','','','','','','','','','','',''];
+    var month_name2 = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     var month1 = d1.getMonth();   //0-11
     var year = d1.getFullYear(); //2014
-    var first_date = month_name1[month1] + " " + 1 + " " + year;
+    var first_date = month_name2[month1] + " " + 1 + " " + year;
     //September 1 2014
     var tmp = new Date(first_date).toDateString();
     //Mon Sep 01 2014 ...
@@ -160,7 +152,7 @@ window.onload = function(){
     var days = new Date(year, month1+1, 0).getDate();    //30
     //Tue Sep 30 2014 ...
     var calendar = get_calendar(day_no, days);
-    // document.getElementById("calendar-month-year1").innerHTML = month_name[month]+" "+year;
+    // document.getElementById("calendar-month-year1").innerHTML = month_name2[month1]+" "+year;
     document.getElementById("calendar-dates1").appendChild(calendar);
     var myVar = setInterval(function() {
   myTimer();
