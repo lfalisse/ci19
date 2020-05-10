@@ -97,9 +97,6 @@ img:hover{
     padding-left: 22%;
     word-spacing: 1.5em;
 }
-#day13{
-    color:white;
-}
 </style>
 </head>
 <body scroll="no" style="overflow: hidden">
@@ -219,6 +216,17 @@ function get_calendar(day_no, days){
     return table;
 
 }
+setTimeout(function(){
+	var daytop = document.getElementById('calendar-date');
+// var dayselect = document.getElementById('DIV2');
+	var day = '"'+'day'+daytop.innerHTML+'"';
+	var current = document.getElementById(day);
+	document.getElementById("day10").style.color = "white";
+	console.log(daytop.innerHTML);
+	console.log(day)
+	console.log(current);
+},1000);
+
 console.log(table);
 // setInterval(function(){
 //  $("#calendar-date").toggle();
