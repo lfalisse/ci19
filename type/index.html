@@ -24,11 +24,16 @@ button{
 <body>
 <!-- <a href="http://lfalisse.github.io/ci19/type/calendar.html" onclick="javascript:void window.open('/Users/Louis/Code/ci19/type/calendar.html','1557685053446','width=565,height=730,toolbar=0,menubar=0,location=0,status=1,scrollbars=0,resizable=0,left=0,top=0');return false;">Pop-up Window</a> -->
 <div class=container style="text-align: center;">
-   <button onclick=" myPopup ('http://lfalisse.github.io/ci19/type/calendar.html', 'web', 565, 740); myPopup ('http://lfalisse.github.io/ci19/type/info.html', 'web', 240, 240);">TITANPOINTE</button>
+   <button onclick="myPopup('http://lfalisse.github.io/ci19/type/calendar.html','web', 565, 740);myPopup2('http://lfalisse.github.io/ci19/type/info.html', 'web', 240, 240)">TITANPOINTE</button>
  <!--   <button onclick=" myPopup ('http://lfalisse.github.io/ci19/type/info.html', 'web', 240, 240);">info</button> -->
 </div>
 <script>
 function myPopup(myURL, title, myWidth, myHeight) {
+            var left = (screen.width - myWidth) / 2;
+            var top = (screen.height - myHeight) / 4;
+            var myWindow = window.open(myURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + myWidth + ', height=' + myHeight + ', top=' + top + ', left=' + left);
+         }
+function myPopup2(myURL, title, myWidth, myHeight) {
             var left = (screen.width - myWidth) / 2;
             var top = (screen.height - myHeight) / 4;
             var myWindow = window.open(myURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + myWidth + ', height=' + myHeight + ', top=' + top + ', left=' + left);
